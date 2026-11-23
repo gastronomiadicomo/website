@@ -4,30 +4,25 @@
     <title>Gastronomia di Como</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Gastronomia di Como. Cucina italiana, gastronomia, ristorante e specialità per ogni occasione." />
+    <meta name="description" content="Gastronomia di Como. Gastronomia, ristorante, cucina italiana e menu per le feste." />
 
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
     <style>
 
-    /* LOGO */
-
     .logo-lake {
         display:flex;
         align-items:center;
         justify-content:center;
-        gap:20px;
-        font-size:28px;
+        gap:15px;
+        font-size:25px;
         margin:25px 0;
     }
 
-    .logo-lake .lake {
+    .lake {
         width:100px;
         height:55px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
     }
 
     .lake svg {
@@ -35,22 +30,48 @@
         height:100%;
     }
 
-    /* IMMAGINI */
+    .custom-gallery {
+        display:grid;
+        grid-template-columns:repeat(2, 1fr);
+        gap:15px;
+        margin:25px 0;
+    }
 
-    .custom-image {
+    .custom-gallery img {
         width:100%;
+        height:230px;
+        object-fit:cover;
         border-radius:5px;
+    }
+
+    .gallery-five img:last-child {
+        grid-column:1 / -1;
+    }
+
+    .menu-day-box {
+        border:1px solid rgba(255,255,255,0.25);
+        padding:25px;
+        margin-top:30px;
+        text-align:center;
+    }
+
+    .menu-day-box h3 {
         margin-bottom:20px;
     }
 
-    /* MENU */
-
-    .menu-item {
-        border-bottom:1px solid rgba(255,255,255,0.2);
-        padding:12px 0;
+    .menu-placeholder {
+        padding:20px;
+        border:1px dashed rgba(255,255,255,0.4);
+        margin:15px 0;
     }
 
-    /* WHATSAPP */
+    .holiday-nav {
+        margin:20px 0;
+    }
+
+    .holiday-nav a {
+        margin:5px;
+    }
 
     .whatsapp-button {
         position:fixed;
@@ -70,19 +91,20 @@
         transform:scale(1.05);
     }
 
-    /* MAPPA */
-
     .map-container iframe {
         width:100%;
         height:350px;
         border:0;
     }
 
-    /* LINK */
+    @media(max-width:600px) {
+        .custom-gallery {
+            grid-template-columns:1fr;
+        }
 
-    .special-link {
-        display:inline-block;
-        margin-top:15px;
+        .custom-gallery img {
+            height:250px;
+        }
     }
 
     </style>
@@ -100,7 +122,7 @@
 
             <div class="logo-lake">
 
-                <span>♜</span>
+                <span>🍴</span>
 
                 <div class="lake">
 
@@ -126,7 +148,7 @@
 
                 </div>
 
-                <span>♜</span>
+                <span>🍴</span>
 
             </div>
 
@@ -142,9 +164,29 @@
                 Tradizione italiana · Cucina · Gusto
                 </p>
 
+                <p>
+                Una storia di passione, cucina e tradizione.
+                </p>
+
             </div>
 
         </div>
+
+        <!-- FESTIVITA' SEPARATE -->
+
+        <div class="holiday-nav">
+
+            <a href="#natale" class="button">
+            🎄 Natale
+            </a>
+
+            <a href="#capodanno" class="button">
+            ✨ Capodanno 2027
+            </a>
+
+        </div>
+
+        <!-- NAVIGAZIONE -->
 
         <nav>
 
@@ -156,13 +198,9 @@
 
                 <li><a href="#ristorante">Ristorante</a></li>
 
-                <li><a href="#menu">Menu</a></li>
-
-                <li><a href="#natale">Natale</a></li>
-
-                <li><a href="#capodanno">Capodanno</a></li>
-
                 <li><a href="#info">Info</a></li>
+
+                <li><a href="#dove">Dove siamo</a></li>
 
             </ul>
 
@@ -230,34 +268,40 @@
 
             <h2 class="major">Gastronomia</h2>
 
-            <span class="image main">
-
-                <img src="images/pic02.jpg" alt="Gastronomia" />
-
-            </span>
-
             <p>
 
-            La cucina italiana è fatta di ingredienti,
-            tradizione e passione.
+            Il gusto della cucina italiana,
+            la tradizione e la passione
+            per le cose buone.
 
             </p>
 
             <p>
 
-            Nella nostra gastronomia troverai piatti preparati,
-            specialità, contorni e tante proposte
+            Scopri le nostre preparazioni,
+            specialità gastronomiche,
+            piatti pronti e proposte
             da portare a casa.
 
             </p>
 
-            <p>
+            <!-- 5 FOTO -->
 
-            Dalla cucina quotidiana alle occasioni speciali,
-            scegliamo di valorizzare il gusto
-            e il piacere di mangiare bene.
+            <div class="custom-gallery gallery-five">
 
-            </p>
+                <img src="images/pic02.jpg" alt="Gastronomia 1">
+
+                <img src="images/pic03.jpg" alt="Gastronomia 2">
+
+                <img src="images/pic04.jpg" alt="Gastronomia 3">
+
+                <img src="images/pic05.jpg" alt="Gastronomia 4">
+
+                <img src="images/pic06.jpg" alt="Gastronomia 5">
+
+            </div>
+
+            <h3>Le nostre specialità</h3>
 
             <ul>
 
@@ -276,17 +320,11 @@
         </article>
 
 
-        <!-- RISTORANTE -->
+        <!-- RISTORANTE + MENU -->
 
         <article id="ristorante">
 
             <h2 class="major">Il Ristorante</h2>
-
-            <span class="image main">
-
-                <img src="images/pic03.jpg" alt="Il ristorante" />
-
-            </span>
 
             <p>
 
@@ -312,61 +350,79 @@
 
             </p>
 
-        </article>
+            <!-- 5 FOTO RISTORANTE -->
 
+            <div class="custom-gallery gallery-five">
 
-        <!-- MENU DEL GIORNO -->
+                <img src="images/pic07.jpg" alt="Ristorante 1">
 
-        <article id="menu">
+                <img src="images/pic08.jpg" alt="Ristorante 2">
 
-            <h2 class="major">Menu del giorno</h2>
+                <img src="images/pic09.jpg" alt="Ristorante 3">
 
-            <p>
+                <img src="images/pic10.jpg" alt="Ristorante 4">
 
-            Le nostre proposte quotidiane,
-            preparate con passione.
-
-            </p>
-
-            <h3>Primi piatti</h3>
-
-            <div class="menu-item">
-
-                <p>Le proposte del giorno</p>
+                <img src="images/pic11.jpg" alt="Ristorante 5">
 
             </div>
 
-            <h3>Secondi piatti</h3>
+            <!-- MENU DEL GIORNO -->
 
-            <div class="menu-item">
+            <div class="menu-day-box">
 
-                <p>Le proposte del giorno</p>
+                <h2>Menu del giorno</h2>
+
+                <p>
+
+                Le nostre proposte quotidiane,
+                preparate con passione.
+
+                </p>
+
+                <div class="menu-placeholder">
+
+                    <h3>Primi piatti</h3>
+
+                    <p>
+                    Il menu del giorno verrà aggiornato quotidianamente.
+                    </p>
+
+                </div>
+
+                <div class="menu-placeholder">
+
+                    <h3>Secondi piatti</h3>
+
+                    <p>
+                    Il menu del giorno verrà aggiornato quotidianamente.
+                    </p>
+
+                </div>
+
+                <div class="menu-placeholder">
+
+                    <h3>Contorni</h3>
+
+                    <p>
+                    Il menu del giorno verrà aggiornato quotidianamente.
+                    </p>
+
+                </div>
+
+                <p>
+
+                Per informazioni e prenotazioni:
+
+                </p>
+
+                <a href="https://wa.me/393318382271"
+                class="button">
+
+                Contattaci su WhatsApp
+
+                </a>
 
             </div>
-
-            <h3>Contorni</h3>
-
-            <div class="menu-item">
-
-                <p>Le proposte del giorno</p>
-
-            </div>
-
-            <h3>Specialità</h3>
-
-            <div class="menu-item">
-
-                <p>Le proposte del giorno</p>
-
-            </div>
-
-            <p>
-
-            Per conoscere il menu aggiornato
-            o prenotare il pranzo,
-            contattaci direttamente.
-
-            </p>
 
         </article>
 
@@ -379,7 +435,7 @@
 
             <span class="image main">
 
-                <img src="images/pic04.jpg" alt="Natale" />
+                <img src="images/pic04.jpg" alt="Menu di Natale" />
 
             </span>
 
@@ -393,35 +449,40 @@
 
             <p>
 
-            Scopri le nostre proposte natalizie,
-            i menu delle feste e le specialità
+            Gastronomia di Como presenta
+            le sue proposte per il Natale,
             pensate per accompagnare
-            i tuoi momenti più importanti.
+            i tuoi momenti più speciali.
 
             </p>
+
+            <h3>Menu di Natale</h3>
+
+            <div class="menu-placeholder">
+
+                <p>
+
+                Qui inseriremo il menu natalizio,
+                le portate, i prezzi
+                e le proposte per le feste.
+
+                </p>
+
+            </div>
 
             <p>
 
-            Per informazioni sui menu,
-            disponibilità e prenotazioni,
-            contattaci.
+            Per informazioni, ordini e prenotazioni,
+            contattaci direttamente.
 
             </p>
 
-            <ul class="actions">
+            <a href="https://wa.me/393318382271"
+            class="button">
 
-                <li>
+            Prenota / Informazioni Natale
 
-                    <a href="https://wa.me/393XXXXXXXXX"
-                    class="button">
-
-                    Informazioni Natale
-
-                    </a>
-
-                </li>
-
-            </ul>
+            </a>
 
         </article>
 
@@ -430,11 +491,11 @@
 
         <article id="capodanno">
 
-            <h2 class="major">Capodanno</h2>
+            <h2 class="major">Capodanno 2027</h2>
 
             <span class="image main">
 
-                <img src="images/pic05.jpg" alt="Capodanno" />
+                <img src="images/pic05.jpg" alt="Capodanno 2027" />
 
             </span>
 
@@ -448,33 +509,39 @@
             <p>
 
             Scopri le nostre proposte
-            per il cenone di Capodanno,
+            per Capodanno 2027,
             le specialità e i piatti
             da condividere con amici e famiglia.
 
             </p>
 
+            <h3>Menu di Capodanno 2027</h3>
+
+            <div class="menu-placeholder">
+
+                <p>
+
+                Qui inseriremo il menu di Capodanno,
+                le portate, i prezzi
+                e le proposte speciali.
+
+                </p>
+
+            </div>
+
             <p>
 
-            Per informazioni e prenotazioni
+            Per informazioni e prenotazioni,
             contattaci direttamente.
 
             </p>
 
-            <ul class="actions">
+            <a href="https://wa.me/393318382271"
+            class="button">
 
-                <li>
+            Prenota / Informazioni Capodanno
 
-                    <a href="https://wa.me/393XXXXXXXXX"
-                    class="button">
-
-                    Informazioni Capodanno
-
-                    </a>
-
-                </li>
-
-            </ul>
+            </a>
 
         </article>
 
@@ -497,7 +564,7 @@
 
             <p>
 
-            Orari di apertura da aggiornare
+            Orari di apertura da aggiornare.
 
             </p>
 
@@ -505,11 +572,21 @@
 
             <p>
 
-            Per informazioni,
-            ordini e prenotazioni,
-            contattaci tramite WhatsApp.
+            WhatsApp:
+            <a href="https://wa.me/393318382271">
+
+            +39 331 838 2271
+
+            </a>
 
             </p>
+
+            <a href="https://wa.me/393318382271"
+            class="button">
+
+            Scrivici su WhatsApp
+
+            </a>
 
         </article>
 
@@ -585,7 +662,7 @@
 
 <!-- WHATSAPP -->
 
-<a href="https://wa.me/393XXXXXXXXX"
+<a href="https://wa.me/393318382271"
 
 class="whatsapp-button"
 
