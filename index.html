@@ -1,684 +1,383 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="it">
 <head>
     <title>Gastronomia di Como</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
+    <meta name="description" content="Gastronomia e ristorante a Como. Gastronomia di Como, tradizione, qualità e cucina italiana." />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/noscript.css" />
 
     <style>
-
-    /* =========================
-       PERSONALIZZAZIONE GENERALE
-    ========================= */
-
-    body {
-        background-color: #111;
-    }
-
-    .brand-logo {
-        font-size: 2em;
-        margin-bottom: 15px;
-    }
-
-    .holiday-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-        margin: 25px 0;
-    }
-
-    .holiday-buttons a {
-        padding: 12px 22px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        border: 1px solid rgba(255,255,255,0.4);
-        transition: 0.3s;
-    }
-
-    .holiday-buttons a:hover {
-        transform: scale(1.05);
-    }
-
-    .christmas-btn {
-        background: #8b1e27;
-        color: white !important;
-    }
-
-    .newyear-btn {
-        background: #b58a3b;
-        color: white !important;
-    }
-
-    /* =========================
-       GALLERIA FOTO
-    ========================= */
-
-    .photo-gallery {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        margin-top: 25px;
-    }
-
-    .photo-gallery img {
-        width: 100%;
-        height: 230px;
-        object-fit: cover;
-        border-radius: 10px;
-        transition: transform 0.3s;
-    }
-
-    .photo-gallery img:hover {
-        transform: scale(1.03);
-    }
-
-    @media screen and (max-width: 700px) {
-        .photo-gallery {
-            grid-template-columns: 1fr;
+        /* Pulsanti speciali */
+        .holiday-buttons {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .photo-gallery img {
+        .holiday-buttons a {
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .holiday-buttons a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* PDF menu */
+        .menu-pdf {
+            width: 100%;
+            height: 700px;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 20px;
+        }
+
+        .pdf-link {
+            margin-top: 15px;
+        }
+
+        /* Galleria */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
             height: 220px;
-        }
-    }
-
-    /* =========================
-       MENU DEL GIORNO PDF
-    ========================= */
-
-    .menu-day-box {
-        margin-top: 30px;
-        padding: 20px;
-        background: rgba(255,255,255,0.04);
-        border-radius: 12px;
-        border: 1px solid rgba(255,255,255,0.15);
-    }
-
-    .menu-pdf-container {
-        margin-top: 25px;
-        width: 100%;
-        overflow: hidden;
-        border-radius: 10px;
-        background: white;
-    }
-
-    .menu-pdf-container iframe {
-        display: block;
-        width: 100%;
-        height: 750px;
-        border: none;
-        background: white;
-    }
-
-    .download-menu {
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .download-menu a {
-        display: inline-block;
-        padding: 12px 25px;
-        border: 1px solid white;
-        border-radius: 8px;
-        text-decoration: none;
-    }
-
-    @media screen and (max-width: 700px) {
-        .menu-pdf-container iframe {
-            height: 500px;
-        }
-    }
-
-    /* =========================
-       MENU FESTIVITA'
-    ========================= */
-
-    .holiday-menu {
-        padding: 25px;
-        border-radius: 10px;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.15);
-        margin-top: 20px;
-    }
-
-    .holiday-menu h3 {
-        margin-top: 25px;
-    }
-
-    /* =========================
-       WHATSAPP
-    ========================= */
-
-    .whatsapp-button {
-        display: inline-block;
-        background: #25D366;
-        color: white !important;
-        border-radius: 8px;
-        padding: 12px 25px;
-        text-decoration: none;
-        font-weight: bold;
-        margin-top: 20px;
-    }
-
-    .whatsapp-floating {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        z-index: 10000;
-        background: #25D366;
-        color: white !important;
-        text-decoration: none;
-        padding: 14px 18px;
-        border-radius: 50px;
-        font-weight: bold;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-
-    /* =========================
-       NEVE
-    ========================= */
-
-    #snow-container {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        overflow: hidden;
-        z-index: 9999;
-    }
-
-    .snowflake {
-        position: absolute;
-        top: -30px;
-        color: white;
-        user-select: none;
-        pointer-events: none;
-        text-shadow: 0 0 5px rgba(255,255,255,0.6);
-        animation: snowfall linear infinite;
-    }
-
-    @keyframes snowfall {
-        0% {
-            transform: translateY(-10vh) translateX(0);
-            opacity: 0;
+            object-fit: cover;
+            border-radius: 5px;
         }
 
-        10% {
-            opacity: 0.9;
+        @media screen and (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img {
+                height: auto;
+            }
+
+            .menu-pdf {
+                height: 500px;
+            }
         }
 
-        100% {
-            transform: translateY(110vh) translateX(60px);
-            opacity: 0.2;
+        /* WhatsApp */
+        .whatsapp-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            border: 1px solid white;
+            border-radius: 30px;
+            text-decoration: none;
         }
-    }
 
-    /* =========================
-       MAPPA
-    ========================= */
+        /* Pulsanti festività */
+        #header .holiday-buttons {
+            margin-bottom: 20px;
+        }
 
-    .map-container {
-        margin-top: 25px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
+        /* Neve */
+        #snow-container {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            overflow: hidden;
+        }
 
-    .map-container iframe {
-        width: 100%;
-        height: 350px;
-        border: 0;
-    }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            opacity: 0.85;
+            user-select: none;
+            animation-name: snowfall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
 
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10vh) translateX(0);
+            }
+            100% {
+                transform: translateY(110vh) translateX(50px);
+            }
+        }
+
+        /* Correzione pulsanti navigazione */
+        #header nav ul {
+            list-style: none;
+        }
+
+        /* Immagini */
+        article img {
+            max-width: 100%;
+        }
     </style>
 </head>
 
 <body class="is-preload">
 
+    <!-- NEVE -->
+    <div id="snow-container"></div>
+
+    <!-- WRAPPER -->
     <div id="wrapper">
 
-        <!-- =========================
-             INTRO
-        ========================= -->
-
+        <!-- HEADER -->
         <header id="header">
-
-            <div class="brand-logo">
-                🍴
-            </div>
 
             <div class="content">
                 <div class="inner">
-
                     <h1>Gastronomia di Como</h1>
-
                     <p>
-                        Tradizione, gusto e passione.<br />
-                        Una nuova identità, la stessa passione
-                        che ha caratterizzato Gastronomia Castiglioni.
+                        Tradizione, qualità e passione.<br>
+                        Un luogo dove riscoprire i sapori della cucina italiana.
                     </p>
-
                 </div>
             </div>
 
+            <!-- PULSANTI FESTIVITÀ -->
+            <div class="holiday-buttons">
+                <a href="#natale">🎄 Natale</a>
+                <a href="#capodanno">✨ Capodanno 2027</a>
+            </div>
+
+            <!-- NAVIGAZIONE -->
+            <nav>
+                <ul>
+                    <li><a href="#chi-siamo">Chi siamo</a></li>
+                    <li><a href="#gastronomia">Gastronomia</a></li>
+                    <li><a href="#ristorante">Ristorante</a></li>
+                    <li><a href="#info">Info</a></li>
+                    <li><a href="#dove">Dove siamo</a></li>
+                </ul>
+            </nav>
+
         </header>
 
-        <!-- =========================
-             PULSANTI FESTIVITA'
-        ========================= -->
-
-        <div class="holiday-buttons">
-
-            <a href="#natale" class="christmas-btn">
-                🎄 Menu di Natale
-            </a>
-
-            <a href="#capodanno" class="newyear-btn">
-                ✨ Capodanno 2027
-            </a>
-
-        </div>
-
-        <!-- =========================
-             NAVIGAZIONE
-        ========================= -->
-
-        <nav>
-
-            <ul>
-
-                <li>
-                    <a href="#chi-siamo">Chi siamo</a>
-                </li>
-
-                <li>
-                    <a href="#gastronomia">Gastronomia</a>
-                </li>
-
-                <li>
-                    <a href="#ristorante">Ristorante</a>
-                </li>
-
-                <li>
-                    <a href="#info">Info</a>
-                </li>
-
-                <li>
-                    <a href="#dove">Dove siamo</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-        <!-- =========================
-             CHI SIAMO
-        ========================= -->
-
+        <!-- MAIN -->
         <div id="main">
 
+            <!-- CHI SIAMO -->
             <article id="chi-siamo">
-
                 <h2 class="major">Chi siamo</h2>
 
                 <p>
-                    Benvenuti a Gastronomia di Como.
+                    Gastronomia di Como nasce dalla passione per la cucina,
+                    i sapori autentici e la tradizione italiana.
                 </p>
 
                 <p>
-                    Nasciamo come continuazione della storica
-                    Gastronomia Castiglioni, portando avanti
-                    la passione per la cucina, la qualità
-                    delle materie prime e il piacere
-                    di condividere il buon cibo.
+                    Un punto di riferimento per chi ama la buona cucina,
+                    i prodotti di qualità e la convivialità.
                 </p>
 
                 <p>
-                    Ogni giorno prepariamo piatti genuini,
-                    ricette tradizionali e specialità
-                    pensate per portare in tavola
-                    il gusto della cucina italiana.
+                    La nostra storia continua con la stessa passione,
+                    nel cuore di Como.
                 </p>
-
             </article>
 
-            <!-- =========================
-                 GASTRONOMIA
-            ========================= -->
-
+            <!-- GASTRONOMIA -->
             <article id="gastronomia">
-
                 <h2 class="major">Gastronomia</h2>
 
                 <p>
-                    La nostra gastronomia propone ogni giorno
-                    piatti preparati con passione,
-                    ingredienti selezionati e attenzione
-                    alla tradizione.
+                    Piatti preparati con cura, ingredienti selezionati
+                    e sapori della tradizione.
                 </p>
 
-                <div class="photo-gallery">
+                <p>
+                    Ogni giorno proponiamo specialità, piatti pronti,
+                    antipasti, primi e secondi.
+                </p>
 
-                    <img src="images/pic02.jpg" alt="Gastronomia 1">
-
-                    <img src="images/pic03.jpg" alt="Gastronomia 2">
-
-                    <img src="images/pic04.jpg" alt="Gastronomia 3">
-
-                    <img src="images/pic05.jpg" alt="Gastronomia 4">
-
-                    <img src="images/pic06.jpg" alt="Gastronomia 5">
-
+                <div class="gallery">
+                    <img src="images/gastronomia1.jpg" alt="Gastronomia">
+                    <img src="images/gastronomia2.jpg" alt="Specialità gastronomiche">
+                    <img src="images/gastronomia3.jpg" alt="Piatti preparati">
+                    <img src="images/gastronomia4.jpg" alt="Cucina italiana">
+                    <img src="images/gastronomia5.jpg" alt="Prodotti gastronomici">
                 </div>
-
             </article>
 
-            <!-- =========================
-                 RISTORANTE
-            ========================= -->
-
+            <!-- RISTORANTE -->
             <article id="ristorante">
-
                 <h2 class="major">Ristorante</h2>
 
                 <p>
-                    Un ambiente accogliente dove fermarsi
-                    a pranzo e gustare piatti preparati
-                    con cura, semplicità e passione.
+                    La nostra cucina offre un ambiente accogliente
+                    dove gustare piatti preparati con passione.
                 </p>
-
-                <div class="photo-gallery">
-
-                    <img src="images/pic07.jpg" alt="Ristorante 1">
-
-                    <img src="images/pic08.jpg" alt="Ristorante 2">
-
-                    <img src="images/pic09.jpg" alt="Ristorante 3">
-
-                    <img src="images/pic10.jpg" alt="Ristorante 4">
-
-                    <img src="images/pic11.jpg" alt="Ristorante 5">
-
-                </div>
-
-                <!-- MENU DEL GIORNO -->
-
-                <div class="menu-day-box">
-
-                    <h2>Menu del giorno</h2>
-
-                    <p>
-                        Le nostre proposte quotidiane,
-                        preparate con passione.
-                    </p>
-
-                    <div class="menu-pdf-container">
-
-                        <iframe
-                            src="menu-del-giorno/menu.pdf"
-                            title="Menu del giorno">
-                        </iframe>
-
-                    </div>
-
-                    <div class="download-menu">
-
-                        <a
-                            href="menu-del-giorno/menu.pdf"
-                            target="_blank">
-
-                            📥 Scarica il menu del giorno
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-            <!-- =========================
-                 NATALE
-            ========================= -->
-
-            <article id="natale">
-
-                <h2 class="major">🎄 Menu di Natale</h2>
 
                 <p>
-                    Festeggia il Natale con le nostre
-                    specialità e i sapori della tradizione.
+                    Pranzi, specialità del giorno e proposte
+                    della cucina tradizionale italiana.
                 </p>
 
-                <div class="holiday-menu">
+                <h3>Menù del giorno</h3>
 
-                    <h3>Menu di Natale</h3>
+                <p>
+                    Consulta il menù aggiornato.
+                </p>
 
-                    <p>
-                        Il nostro menu natalizio sarà
-                        presto disponibile.
-                    </p>
+                <iframe
+                    class="menu-pdf"
+                    src="menu-del-giorno/menu%20del%20giorno.pdf"
+                    title="Menù del giorno">
+                </iframe>
 
-                    <p>
-                        Per informazioni e prenotazioni,
-                        contattaci direttamente.
-                    </p>
+                <p class="pdf-link">
+                    <a href="menu-del-giorno/menu%20del%20giorno.pdf"
+                       target="_blank">
+                        📄 Apri il menù in una nuova finestra
+                    </a>
+                </p>
 
+                <div class="gallery">
+                    <img src="images/ristorante1.jpg" alt="Ristorante">
+                    <img src="images/ristorante2.jpg" alt="Sala ristorante">
+                    <img src="images/ristorante3.jpg" alt="Piatti del ristorante">
+                    <img src="images/ristorante4.jpg" alt="Cucina">
+                    <img src="images/ristorante5.jpg" alt="Ristorante">
                 </div>
 
-                <a
-                    class="whatsapp-button"
-                    href="https://wa.me/393318382271?text=Buongiorno%2C%20vorrei%20informazioni%20sul%20menu%20di%20Natale"
-                    target="_blank">
-
-                    💬 Prenota su WhatsApp
-
+                <a class="whatsapp-button"
+                   href="https://wa.me/393318382271"
+                   target="_blank">
+                    Prenota su WhatsApp
                 </a>
-
             </article>
 
-            <!-- =========================
-                 CAPODANNO
-            ========================= -->
+            <!-- NATALE -->
+            <article id="natale">
+                <h2 class="major">🎄 Natale</h2>
 
+                <p>
+                    Il Natale è il momento di stare insieme
+                    e condividere i sapori della tradizione.
+                </p>
+
+                <p>
+                    Scopri le nostre proposte per il pranzo natalizio.
+                </p>
+
+                <p>
+                    <strong>Menù natalizio in arrivo.</strong>
+                </p>
+
+                <a class="whatsapp-button"
+                   href="https://wa.me/393318382271"
+                   target="_blank">
+                    Contattaci su WhatsApp
+                </a>
+            </article>
+
+            <!-- CAPODANNO -->
             <article id="capodanno">
-
                 <h2 class="major">✨ Capodanno 2027</h2>
 
                 <p>
                     Festeggia l'arrivo del nuovo anno
-                    con i nostri piatti speciali.
+                    con le nostre proposte.
                 </p>
 
-                <div class="holiday-menu">
+                <p>
+                    <strong>Menù Capodanno 2027 in arrivo.</strong>
+                </p>
 
-                    <h3>Menu Capodanno 2027</h3>
-
-                    <p>
-                        Il menu di Capodanno sarà
-                        presto disponibile.
-                    </p>
-
-                    <p>
-                        Per informazioni e prenotazioni,
-                        contattaci direttamente.
-                    </p>
-
-                </div>
-
-                <a
-                    class="whatsapp-button"
-                    href="https://wa.me/393318382271?text=Buongiorno%2C%20vorrei%20informazioni%20sul%20menu%20di%20Capodanno"
-                    target="_blank">
-
-                    💬 Prenota su WhatsApp
-
+                <a class="whatsapp-button"
+                   href="https://wa.me/393318382271"
+                   target="_blank">
+                    Contattaci su WhatsApp
                 </a>
-
             </article>
 
-            <!-- =========================
-                 INFO
-            ========================= -->
-
+            <!-- INFO -->
             <article id="info">
-
-                <h2 class="major">Informazioni</h2>
+                <h2 class="major">Info</h2>
 
                 <p>
-                    Per informazioni, prenotazioni
-                    e richieste puoi contattarci.
+                    Per informazioni, prenotazioni e richieste
+                    puoi contattarci direttamente.
                 </p>
 
                 <p>
-                    <strong>Telefono / WhatsApp:</strong><br />
-
+                    WhatsApp:
                     <a href="https://wa.me/393318382271" target="_blank">
-
-                        +39 331 838 2271
-
+                        331 838 2271
                     </a>
-
                 </p>
-
-                <a
-                    class="whatsapp-button"
-                    href="https://wa.me/393318382271"
-                    target="_blank">
-
-                    💬 Contattaci su WhatsApp
-
-                </a>
-
             </article>
 
-            <!-- =========================
-                 DOVE SIAMO
-            ========================= -->
-
+            <!-- DOVE SIAMO -->
             <article id="dove">
-
                 <h2 class="major">Dove siamo</h2>
 
                 <p>
                     Ci trovi a Como.
                 </p>
 
-                <div class="map-container">
-
-                    <iframe
-                        src="https://maps.google.com/maps?q=Como%20Italia&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                        loading="lazy">
-                    </iframe>
-
-                </div>
-
                 <p>
-
-                    <a
-                        href="https://maps.google.com/?q=Como+Italia"
-                        target="_blank">
-
-                        📍 Apri Google Maps
-
-                    </a>
-
+                    Per raggiungerci e per indicazioni
+                    puoi contattarci direttamente.
                 </p>
-
             </article>
 
         </div>
 
-        <!-- =========================
-             FOOTER
-        ========================= -->
-
+        <!-- FOOTER -->
         <footer id="footer">
-
             <p class="copyright">
-
-                © Gastronomia di Como
-
+                &copy; Gastronomia di Como.
             </p>
-
         </footer>
 
     </div>
 
-    <!-- =========================
-         NEVE
-    ========================= -->
+    <!-- BG -->
+    <div id="bg"></div>
 
-    <div id="snow-container"></div>
-
-    <!-- =========================
-         WHATSAPP FISSO
-    ========================= -->
-
-    <a
-        class="whatsapp-floating"
-        href="https://wa.me/393318382271"
-        target="_blank">
-
-        💬 WhatsApp
-
-    </a>
-
-    <!-- =========================
-         SCRIPT TEMPLATE DIMENSION
-    ========================= -->
-
+    <!-- SCRIPT TEMPLATE -->
     <script src="assets/js/jquery.min.js"></script>
-
     <script src="assets/js/browser.min.js"></script>
-
     <script src="assets/js/breakpoints.min.js"></script>
-
     <script src="assets/js/util.js"></script>
-
     <script src="assets/js/main.js"></script>
 
-    <!-- =========================
-         SCRIPT NEVE
-    ========================= -->
-
+    <!-- NEVE -->
     <script>
+        (function() {
+            const container = document.getElementById('snow-container');
+            const total = 70;
 
-    (function () {
+            for (let i = 0; i < total; i++) {
+                const snow = document.createElement('div');
+                snow.className = 'snowflake';
+                snow.innerHTML = '❄';
 
-        const container = document.getElementById('snow-container');
+                snow.style.left = Math.random() * 100 + '%';
+                snow.style.fontSize = (Math.random() * 12 + 8) + 'px';
+                snow.style.animationDuration = (Math.random() * 8 + 5) + 's';
+                snow.style.animationDelay = (Math.random() * 10) + 's';
 
-        const flakes = 80;
-
-        for (let i = 0; i < flakes; i++) {
-
-            const snow = document.createElement('div');
-
-            snow.className = 'snowflake';
-
-            snow.innerHTML = '❄';
-
-            snow.style.left = Math.random() * 100 + '%';
-
-            snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
-
-            snow.style.opacity = Math.random();
-
-            snow.style.animationDuration = (Math.random() * 8 + 5) + 's';
-
-            snow.style.animationDelay = (Math.random() * 10) + 's';
-
-            container.appendChild(snow);
-
-        }
-
-    })();
-
+                container.appendChild(snow);
+            }
+        })();
     </script>
 
 </body>
